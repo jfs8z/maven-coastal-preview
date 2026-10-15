@@ -1,6 +1,6 @@
 'use strict';
-const images=['basket-view-01.jpg','basket-view-02.jpg','basket-view-03.jpg','basket-view-04.jpg','basket-view-05.jpg','basket-view-06.jpg'];
-const descriptions=['Coastal crochet basket filled with household items, with its handle and full base visible','Empty coastal crochet basket viewed from above, showing the open interior and rim','Circular crochet stitches at the interior base of the basket','Integrated handle and crochet stitches along the basket rim','Empty basket beside household items on an upholstered bench','Basket resting on its side, showing the circular bottom and handle'];
+const images=['studio-01.webp','studio-02.webp'];
+const descriptions=['Empty coastal crochet basket isolated on white, showing its crochet surface and handle','Coastal crochet basket styled with household items, isolated on white'];
 let selected=0;const main=document.querySelector('#main-photo'),large=document.querySelector('#large-photo'),dialog=document.querySelector('#lightbox'),open=document.querySelector('#open-photo');
 function show(n){selected=(n+images.length)%images.length;main.src=large.src='assets/'+images[selected];main.alt=large.alt=descriptions[selected];document.querySelector('#photo-count').textContent=String(selected+1).padStart(2,'0')+' / '+String(images.length).padStart(2,'0');document.querySelector('#modal-count').textContent='Photograph '+(selected+1)+' of '+images.length;open.setAttribute('aria-label','Enlarge basket photograph '+(selected+1)+' of '+images.length);document.querySelectorAll('[data-photo]').forEach(b=>b.setAttribute('aria-pressed',String(Number(b.dataset.photo)===selected)));}
 document.querySelectorAll('[data-photo]').forEach(b=>b.addEventListener('click',()=>show(Number(b.dataset.photo))));
